@@ -8,7 +8,6 @@ import sys
 
 
 def eating_cookies(n, cache=None):
-    print(n)
     if n == 0:
         return 1
     elif n < 1:
