@@ -4,7 +4,23 @@ import sys
 
 
 def making_change(amount, denominations):
-    pass
+    return get_combinations(amount, denominations)
+
+
+def get_combinations(amount, denominations, index=0):
+    total_ways = 0
+
+    if amount == 0:
+        return 1
+    if amount < 0:
+        return 0
+
+    for current_index in range(index, len(denominations)):
+        new_amount = amount - denominations[current_index]
+        total_ways += get_combinations(new_amount,
+                                       denominations, current_index)
+
+    return total_ways
 
 
 if __name__ == "__main__":
